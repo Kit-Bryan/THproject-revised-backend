@@ -6,7 +6,8 @@
   "scripts": {
     "device": "node device-simulator",
     "write": "npx ts-node -r tsconfig-paths/register src/service/mqtt/",
-    "api": "npx ts-node -r tsconfig-paths/register src/api/"
+    "api": "npx ts-node -r tsconfig-paths/register src/api/",
+    "socket": "npx ts-node -r tsconfig-paths/register src/service/socket/"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "config": "^3.3.11",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mqtt": "^5.3.5"
+    "mqtt": "^5.3.5",
+    "socket.io": "^4.7.5"
   }
 }
