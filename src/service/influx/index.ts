@@ -27,7 +27,7 @@ export async function readData(duration?: number) {
 
     const fluxQuery = `
         from(bucket:"${bucket}") 
-        |> range(start: -5m) 
+        |> range(start: -10m) 
         |> filter(fn: (r) => r._measurement == "environment")
         |> aggregateWindow(every: 2m, fn: mean)
     `
