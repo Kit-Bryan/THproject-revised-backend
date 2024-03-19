@@ -16,24 +16,50 @@ export function writeData(deviceId: string, humidity: number, temperature: numbe
     console.log(`writing ${point}`)
 }
 
-export async function readData(duration?: number) {
+export async function readData(duration?: string) {
     // Todo: add different values
-    let range = 5;
-    let window = 2;
-    if (duration == 5) {
-        range = 5;
-        window = 2;
+    let range = "5m";
+    let window = "2m";
+    if (duration === "5m") {
+        range = "5m";
+        window = "1m";
+    } else if (duration === "30m") {
+        range = "30m";
+        window = "5m";
+    } else if (duration === "1hr") {
+        range = "1h";
+        window = "15m";
+    } else if (duration === "24hr") {
+        range = "24h";
+        window = "4h";
     }
 
     const fluxQuery = `
         from(bucket:"${bucket}") 
-        |> range(start: -10m) 
+        |> range(start: -${range}) 
         |> filter(fn: (r) => r._measurement == "environment")
-        |> aggregateWindow(every: 2m, fn: mean)
+        |> aggregateWindow(every: ${window}, fn: mean)
     `
     const data = await queryApi.collectRows(
         fluxQuery //, you can also specify a row mapper as a second argument
     )
+
+    return data;
+    // data.forEach((x) => console.log(JSON.stringify(x)))
+    // console.log('\nCollect ROWS SUCCESS')
+}
+export async function getLastDataPoint(duration?: string) {
+    const fluxQuery = `
+        from(bucket:"${bucket}") 
+        |> range(start: -1m) 
+        |> filter(fn: (r) => r._measurement == "environment")
+        |> aggregateWindow(every: 2m, fn: mean)
+        |> last()
+    `
+    const data = await queryApi.collectRows(
+        fluxQuery //, you can also specify a row mapper as a second argument
+    )
+
     return data;
     // data.forEach((x) => console.log(JSON.stringify(x)))
     // console.log('\nCollect ROWS SUCCESS')
