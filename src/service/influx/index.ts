@@ -28,7 +28,10 @@ export async function readData(duration?: string) {
         window = "5m";
     } else if (duration === "1hr") {
         range = "1h";
-        window = "15m";
+        window = "10m";
+    } else if (duration === "12hr") {
+        range = "12h";
+        window = "2h";
     } else if (duration === "24hr") {
         range = "24h";
         window = "4h";
@@ -48,6 +51,7 @@ export async function readData(duration?: string) {
     // data.forEach((x) => console.log(JSON.stringify(x)))
     // console.log('\nCollect ROWS SUCCESS')
 }
+
 export async function getLastDataPoint(duration?: string) {
     const fluxQuery = `
         from(bucket:"${bucket}") 
