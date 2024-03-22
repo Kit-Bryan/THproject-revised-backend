@@ -15,10 +15,15 @@ client.on("connect", () => {
     });
 });
 
+let counter = 0;
 client.on("message", (topic: any, message: any) => {
     let {timestamp, deviceId, temperature, humidity} = JSON.parse(message.toString())
     console.log(timestamp, deviceId, temperature, humidity);
     writeData(deviceId, humidity, temperature);
-    sendDataToFrontEnd();
+    counter++
+    if (counter === 3) {
+        sendDataToFrontEnd();
+        counter = 0;
+    }
     // client.end();
 });
