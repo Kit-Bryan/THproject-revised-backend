@@ -7,7 +7,8 @@
     "device": "node device-simulator",
     "write": "npx ts-node -r tsconfig-paths/register src/service/mqtt/",
     "api": "npx ts-node -r tsconfig-paths/register src/api/",
-    "socket": "npx ts-node -r tsconfig-paths/register src/service/socket/"
+    "socket": "npx ts-node -r tsconfig-paths/register src/service/socket/",
+    "app": "npx ts-node -r tsconfig-paths/register src/app.ts/"
   },
   "keywords": [],
   "author": "",
