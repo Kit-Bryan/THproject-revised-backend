@@ -19,4 +19,7 @@ app.get('/api/data', function (req: any, res: any) {
     });
 })
 
-app.listen(3000);
+app.listen(3000, ()=> {
+    console.log("API Server started");
+});
+

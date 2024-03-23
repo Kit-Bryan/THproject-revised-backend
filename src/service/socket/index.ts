@@ -8,6 +8,7 @@ const io = new Server({
     }
 });
 
+io.listen(3009);
 io.on("connection", (socket: any) => {
     console.log("Socket connected")
 });
@@ -22,4 +23,3 @@ export function sendDataToFrontEnd() {
     });
 }
 
-io.listen(3009);

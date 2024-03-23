@@ -68,7 +68,3 @@ export async function getLastDataPoint(duration?: string) {
     // data.forEach((x) => console.log(JSON.stringify(x)))
     // console.log('\nCollect ROWS SUCCESS')
 }
-
-readData()
-
-// writeData("dummy-temp-1", 3, 25);
