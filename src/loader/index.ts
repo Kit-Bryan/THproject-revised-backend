@@ -12,5 +12,3 @@ export default async function loader() {
     await (await import("@/subscribers")).default();
     console.log("Subscribers loaded");
 }
-
-loader();
