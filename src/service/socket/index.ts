@@ -3,7 +3,7 @@ import { Server } from "socket.io";
 
 import { getLastDataPoint, readData } from "@/service/influx";
 import { ChartData, SocketConfig } from "~/socket";
-import {frontEndConfig} from "~/project";
+import { frontEndConfig } from "~/project";
 
 const frontEndConfig = config.get<frontEndConfig>("frontEnd")
 const socketConfig = config.get<SocketConfig>("socket")
