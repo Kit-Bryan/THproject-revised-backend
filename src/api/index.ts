@@ -23,7 +23,14 @@ app.get('/api/data', function (req: any, res: any) {
     });
 })
 
-app.listen(port, ()=> {
-    console.log("API Server started");
+// app.get('/bot', function (req: any, res: any) {
+//     let {msg} = req.query;
+//     bot.sendMessage(-4155021618, msg)
+//     res.send("ok")
+// })
+
+app.listen(port, () => {
+    console.log(`API Server started @${port}`);
 });
 
+export default app

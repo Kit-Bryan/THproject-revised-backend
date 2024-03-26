@@ -13,7 +13,7 @@ export function writeData(deviceId: string, humidity: number, temperature: numbe
         .floatField('temperature', temperature)
 
     writeApi.writePoint(point);
-    console.log(`writing ${point}`)
+    // console.log(`writing ${point}`)
 }
 
 export async function readData(duration?: string) {
