@@ -13,7 +13,6 @@ const {host, port} = config.get<mqttConfig>("mqtt");
 let client = mqtt.connect(`mqtt://${host}:${port}`);
 
 export default async function subscribers() {
-    console.log("hi from subscribers")
     let counter = 0;
 
     client.on("connect", () => {
