@@ -22,3 +22,7 @@ exports.frontEnd = {
     host: "",
     port: 1,
 }
+
+exports.telegram = {
+    token: "",
+}
